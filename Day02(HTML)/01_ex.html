@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>audio</title>
+    </head>
+    <body>
+        <audio src="./old_pop.mp3" autoplay="autoplay" controls="controls">
+        브라우저에서 audio 요소를 지원하지 않는 경우 보이는 텍스트!
+        </audio>
+        <!-- 크롬 브라우저는 2018.04부터 autoplay를 지원하지 않음 -->
+
+        <!-- 브라우저에 따른 음원의 유형에 대응하기 위해 <source>요소 사용 -->
+        <audio autoplay controls> 
+            <!-- 크롬에서는 controls가 필수 -->
+            <source src="./old_pop.mp3" type="audio/mp3">
+            <source src="./old_pop.ogg" type="audio/mp3">
+        </audio>
+    
+        <video controls>
+            <source src="./movie.ogv" type="video/ogg">
+            <!-- ogv 파일의 MIME 타입은 ogg -->
+        </video>
+        <!-- poster, width, height 속성 적용 -->
+        <video controls poster="./icon06.png" width="640" height="480">
+            <source src="./trailer.mp4" type="video/mp4">
+            <source src="./trailer.webm" type="video/webm">
+            <source src="./trailer.ogv" type="video/ogg">
+        </video>
+
+        <hr>
+        <hr>
+
+        <!-- iframe(inline frame): 다른 문서 가져와서 보여주기 -->
+        <iframe src="../Day01/02_text.html" width="300" height="150"></iframe>
+
+        <!-- 다른 웹서버의 사이트 문서도 표시 가능 -->
+        <iframe src="http://mrhi2018.dothome.co.kr/index.html" width="300" height="150"></iframe>
+
+        <iframe src="http://www.daum.net" frameborder="0"></iframe>
+
+        <!-- <a>요소에 의해 열리는 target으로 iframe 지정 가능 -->
+        <hr>
+        <iframe src="" name="sonny"></iframe>
+        <a href="../Day01/03_ex.html" target="sonny">03_ex.html 문서 열기</a>
+        
+        <hr>
+        <hr>
+
+        <!-- div(divide): 논리적으로 영역 구분 [block 요소] -->
+        <div style="background-color: chartreuse; border: 2px solid royalblue; padding-left: 10px;">
+            <!-- ;을 쓰지 않아도 되지만 속성을 여러 개 줄 때는 반드시 써야 함 -->
+            <h2>Title</h2>
+            <p>This is message.</p>
+        </div>
+
+        <!-- div요소의 [block 요소] 특징 알아보기 -->
+        <p>안녕하세요. 나는 <div style="color:slateblue;">Sonny</div>입니다.</p>
+        
+        <!-- <span>: div 요소와 같은 역할이지만 [inline 요소] 특성을 가짐 -->
+        <p>안녕하세요. 나는 <span style="color:slateblue;">Sonny</span>입니다.</p>
+
+        <!-- div의 영역 레이아웃 구조 연습 -->
+        <!-- <div> 영역 구분은 나중에 웹페이지의 헤더, 본문, 푸터영역을 구분하는데 주요한 역할을 함 -->
+        <div id="header" style="background-color: yellow; height: 20px;"></div>
+        <div id="content" style="background-color: aquamarine; height: 100px;"></div>
+        <div id="footer" style="background-color: seagreen; height: 20px;"></div>
+
+        
+
+    </body>
+</html>
