@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>04_table</title>
+    </head>
+    <body>
+        <table border="1">
+        <!-- 테이블 헤더 -->
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>Sam</td>
+                <td>Hello</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Robin</td>
+                <td>Nice to meet you</td>
+                <td>2019.12.03</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 셀병합 -->
+        <table border="1">
+
+            <!-- 테이블 전체의 제목(caption) -->
+            <caption>테이블의 제목</caption>
+            <!-- caption은 코드의 작성 위치와 상관없이 무조건 테이블의 상단에 표시됨 -->
+            <!-- 만약 위치를 조정하고 싶다면 CSS문법 사용해야 함 -->
+
+            <!-- 한 줄만 있을 때는 비교대상이 없기에 span의 영향이 없음 -->
+            <tr>
+                <td rowspan="2">111</td>
+                <td colspan="2">222</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <td>444</td>
+                <td>555</td>
+                <td>66666666666</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <!-- 테이블 <td> 요소 안에 다른 요소 넣기 -->
+        <table border="1" width="100%">
+            <tr>
+                <!-- <td> 요소 안에 <a> 요소 넣기 -->
+                <td width="30%"><a href="http://www.naver.com>">NAVER</a></td>
+
+                <!-- <td> 안에 <ul> 넣기 -->
+                <td>
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </td>
+
+            </tr>
+
+            <tr>
+                <!-- <td> 안에 <p> 넣기 -->
+                <td>
+                    <p>테이블 안에 어떤 요소든 넣을 수 있음. 한글은 자동 줄바꿈이 됨. </p>
+                    <!-- 하지만 영어는 한글과 다르게 자동으로 줄바꿈이 안됨. 대신 wrap_content -->
+                    <p>This section covers the core APIs for handling audio and video data and describes the most often-used classes for recording and playing media. It also explains the recommended architecture for media apps</p>
+                </td>
+
+                <!-- <td> 안에 <img> 넣기 -->
+                <td>
+                    <img src="./icon01.png" alt="Smile Icon" width="70%">
+                    <!-- 가운데 정렬 같은 꾸밈 작업은 CSS 문법으로 -->
+                </td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
