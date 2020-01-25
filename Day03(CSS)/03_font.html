@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>font style</title>
+
+        <style type="text/css">
+            /* 폰트 글꼴 */
+            p{font-family: "Blippo Blk BT", serif;}
+            p{font-family: "휴먼옛체", sans-serif;}
+            p{font-family: fantasy;}
+            p{font-family: cursive;}
+            p{font-family: monospace;}
+            
+
+            /* 웹폰트 : 별도의 ttf, otf 폰트파일로 폰트지정 */
+            /* 브라우저의 영향이 없는 글꼴지정 방식 */
+
+            /* 웹폰트 등록 문법*/
+            @font-face{
+                font-family: "My Font"; /*폰트이름*/
+                src: url("./Swagger.ttf");
+                /* src: url("./billabong.otf"); */
+            }
+
+            /* 위에서 만들어진 웹폰트를 p요소에 적용하기 */
+            p{font-family: "My Font", serif;} 
+            /* 가장 선호하는 폰트, 없다면 그 다음으로 지정할 폰트 */
+
+
+            /* 폰트 크기 : 권장단위 em(배율)*/
+            p{font-size: 2.0em;}
+
+            /* bold, normal , 100~900*/
+            p{font-weight: bold;}
+
+            /* italic */
+            p{font-style: italic;}
+
+            /* 위 4개의 폰트관련 속성을 한번에 설정하기 */
+            /* 작성순서  [weight/style] [size] [family]*/
+            p{font: italic bold 200% "휴먼매직체",serif;}
+
+
+            /* 텍스트 관련 스타일 속성들 */
+            /* 1. 텍스트 정렬 */
+            p{text-align:center;}
+
+            /* 2.텍스트 변환 */
+            p{text-transform: uppercase;}
+
+            /* 3. 텍스트 꾸미기[줄긋기] */
+            p{text-decoration: none;}
+            p{text-decoration: underline;}
+
+            /* 4. 텍스트 그림자 */
+            p{text-shadow: 5px 3px 5px bisque;}
+
+            /* 5. word wrap */
+            p.aa{
+                width: 5em;
+                border: 4px solid blueviolet;
+                word-wrap: break-word;
+            }
+
+            /* 다중 column */
+            p.lorem{
+                column-count: 2;
+                column-gap: 40px;
+                column-rule: 4px dashed tomato;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <p>Hello world</p>
+        <p>한글은 어떠한가?</p>
+
+        <p class="aa">
+            한글은 문제 없이 다음 줄로 자동으로 내려갑니다. 
+            absdfvsadflqwlgksdjhweiuryodsfabsdfvsadflqwlgksdjhweiuryodsf absdfvsadflqwlgksdjhweiuryodsfabsdfvsadflqwlgksdjhweiuryodsf
+        </p>
+
+        <p class="lorem">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt temporibus aliquid ipsum quos commodi quibusdam beatae qui minus! Ex numquam soluta expedita facilis. Dignissimos est, quae atque omnis a natus.
+        </p>
+
+        <!-- 주의! text-align은 블럭요소만 적용가능 -->
+        <div style="background-color: cadetblue; text-align: center; line-height: 5em;">Hello</div> 
+        <span style="background-color: lime; text-align: center; letter-spacing: .5em;">Nice</span>
+        <!-- div는 블럭 요소라 match-parent, span은 인라인 요소라 wrap-content -->
+        <!-- 인라인 요소는 기본적으로 사이즈 조절이 불가 -->
+
+    </body>
+</html>
