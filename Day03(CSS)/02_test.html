@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TEST</title>
+
+        <!-- 스타일을 적용하는 3가지 방법 -->
+        <!-- 1. 외부 스타일시트 -->
+        <link rel="stylesheet" href="./02_test.css">
+        
+        <!-- 2. 내부 스타일시트 -->
+        <style>
+            p{color: tomato;}
+            /* 더 나중에 작성했으므로 tomoto가 적용됨 */
+            
+            </style>
+        
+    </head>
+    <body>
+        <!-- 3. 인라인 스타일: 작성 순서와 상관없이 우선순위가 가장 높음 -->
+        <p style="color:violet; font-weight:bold;">Hello CSS</p>
+        
+        <!-- 내부스타일을 body영역에 넣어도 됨 -->
+        <style>
+            p{color: teal;}
+            </style>
+
+        <!-- 외부스타일 연결도 body에서 가능 -->
+        <link rel="stylesheet" href="./02_test.css">
+    </body>
+</html>
