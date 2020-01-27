@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>애니메이션</title>
+
+        <!-- JQuery 추가 -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(document).ready( function(){
+
+                // duration: ms값 / 키워드: slow(600ms), fast(200ms), 기본(400ms)
+                $('#show').click(function(){
+                    $('img').show("slow");
+                });
+                $('#hide').click(function(){
+                    $('img').hide(2000); // 2000ms
+                });
+                $('#toggle').click(function(){
+                    $('img').toggle("fast"); // 2000ms
+                });
+                $('#fadein').on('click', function(){
+                    $('img').fadeIn(3000, function(){
+                        alert('animation is completed');
+                    }); 
+                });
+                $('#fadeout').on('click', function(){
+                    $('img').fadeOut(3000); 
+                });
+                $('#fadeto').on('click', function(){
+                    $('img').fadeTo(2000, 0.5); // 0.5까지만 투명해지도록 
+                });
+                $('#slideup').on('click', function(){
+                    $('img').slideUp("slow");  
+                });
+                $('#slidedown').on('click', function(){
+                    $('img').slideDown("slow"); 
+                });
+                $('#slidetoggle').on('click', function(){
+                    $('img').slideToggle("slow"); 
+                });
+
+                $('#all').on('click', function(){
+                    $('img').show("slow").fadeOut('slow').slideDown('slow'); 
+                });
+               
+                
+                
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <p>
+            <button id="show">show</button>
+            <button id="hide">hide</button>
+            <button id="toggle">toggle</button>
+            <button id="fadein">fadein</button>
+            <button id="fadeout">fadeout</button>
+            <button id="fadeto">fadeto</button>
+            <button id="slideup">slideup</button>
+            <button id="slidedown">slidedown</button>
+            <button id="slidetoggle">slidetoggle</button>
+            <button id="all">show+fade+slide</button>
+        </p>
+
+        <img src="./icon01.png" alt="icon" width="200">
+    
+    </body>
+</html>
