@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex</title>
+
+        <style>
+            /* display 속성 */
+            /* 블럭 요소를 인라인 요소로 변경 [width 조정이 불가능해짐] */
+            #a{display: inline; width: 300px;}
+            /* 인라인처럼 옆으로 배치되지만 블럭처럼 너비를 주고 싶다면 */
+            #a{display: inline-block; width: 300px;}
+
+            /* 인라인 요소를 블럭 요소로 변경 */
+            img.b{display: block;}
+
+            /* display 속성 값으로 none (안드로이드의 gone 역할) */
+            li#c{display: none;} /*아예 사라짐*/
+            /* li#c{visibility: hidden;} 공간은 차지하나 보이지 않음 */
+
+            /* position 속성 */
+
+            .aaa{background-color: pink; position: relative;}
+            /* 부모가 relative 이면 그 자식은 그 부모의 좌상단을 기준으로 위치 설정 */
+
+            #p1{background: limegreen; width:200px; height:50px;}
+
+            #p2{
+                position: static; /* 원래 놓여질 위치대로 놓기: default */
+                position: relative; /* 원래 놓여질 위치를 기준으로 설정*/
+                position: absolute; /* 문서의 좌상단을 기준으로 설정 */
+                position: fixed; /* 브라우저를 기준으로 설정 : 주로 인터넷 광고..*/
+
+                /* 요소의 위치지정 속성 (static에서는 적용이 안됨)*/
+                left: 50px;
+                top: 30px;
+                background:mediumpurple; width:200px; height:50px;}
+
+            #p3{background: yellow; width:200px; height:50px;}
+
+        </style>
+    </head>
+    <body>
+        <!-- display 속성 연습 -->
+        <p id="a">Hello World</p> <!-- 블럭 요소 -->
+        <a href="">Good Bye</a> <!-- 인라인 요소 -->
+        <em>Good afternoon</em> <!-- 인라인 요소 -->
+
+        <img src="lion.png" alt="" class="b">
+
+        <hr>
+
+        <!-- display:none 연습 -->
+        <ul>
+            <li>aaa</li>
+            <li id="c">bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <hr>
+        <!-- 블럭 요소와 인라인 요소를 함께 사용할 때 고려해야 할 것들 -->
+
+        <!-- 블럭 요소 안에 블럭 요소를 넣었을 때 -->
+        <div style="background-color: palegoldenrod; border:solid; padding: 5px;">
+            Happy<p>aaa</p>World
+        </div>
+
+        <!-- 인라인 요소 안에 블럭 요소를 넣었을 때 (권장하지는 않으나 에러는 아님) -->
+        <span style="background-color:palevioletred; border:solid; padding: 5px;">Happy<p>bbb</p>World</span>
+        <!-- 인라인 요소를 비집고 블럭요소가 들어왔기 때문에 깨짐 -->
+
+        <!-- 블럭 요소 안에 블럭 요소를 넣을 때 같은 요소를 넣는 것은 권장하지 않음 -->
+        <p style="background-color: lightskyblue; border:solid; padding: 5px">Nice <p>ccc</p>World</p>
+
+        <h1 style="background-color: palegoldenrod; border:solid; padding: 5px">Nice <h1>aaa</h1>World</h1>
+
+        <!-- position -->
+        <div class="aaa">
+            <p id="p1">block #1</p>
+            <p id="p2">block #2</p>
+            <p id="p3">block #3</p>
+        </div>
+
+
+    </body>
+    
+</html>
