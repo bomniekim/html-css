@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Element Control</title>
+
+        <script>
+            // onclick에 의해 지정한 함수
+            function cal(){
+                // 사용자 입력을 받은 input 요소 참조하기
+                var in1= document.getElementById('in1');
+                var in2= document.getElementById('in2');
+
+                // input 요소에 써진 글씨(숫자) 얻어오기
+                var a= in1.value;
+                var b= in2.value;
+
+                //입력받은 두 수의 덧셈
+                // var c= a+b;
+                var c = parseInt(a) + parseInt(b);
+
+                //덧셈결과를 id=result에게 보여주기
+                var result= document.getElementById('result');
+                result.value= c;
+
+            }
+
+            function changeColor(){
+                var e= document.getElementById('h2');
+                e.style.color="#333";
+                e.style.backgroundColor="gold";
+                e.style.border="2px solid black";
+                e.style.padding="3px";
+
+                // 요소 찾아올 때 사용하는 메소드 중 빈번히 쓰이는 또 다른 메소드
+                var es= document.getElementsByTagName('h2');
+                // 리턴된 요소가 여러 개일 수 있으므로 es는 배열변수!
+                es[0].style.color="navy"; // h2 중 첫번째 것
+                es[0].style.backgroundColor="lightgreen";
+
+            }
+
+            function changeImage(){
+                // 요소의 name 속성 값을 이용해서 찾아오기
+                var a=document.getElementsByName('sunshine');
+                // var a는 여러 요소일 수 있기 때문에 배열변수
+                a[0].src="./storm.jpg";
+            }
+
+
+        </script>
+    </head>
+    <body>
+        
+        <input type="text" id="in1"><br>
+        <input type="text" id="in2"><br>
+        <input type="button" value="계산" onclick="cal()"><br>
+        <input type="text" id="result" size="30"><br>
+
+        <hr>
+        <!-- html 요소의 특정 스타일 변경 -->
+        <h2 id="h2" style="background-color: whitesmoke;">This is Heading</h2>
+        <button onclick="changeColor()">changing background-color of h2 element</button>
+
+        <hr>
+
+        <!-- 이미지 변경 -->
+        <img src="./sunshine.jpg" width="200px" name="sunshine">
+        <button onclick="changeImage()">changing image</button>
+
+        <hr>
+
+        <!-- 제어문은 특별한 것이 없음 -->
+        <!-- 특이한 점이 있다면 body 안에서 html 요소들과 혼재되어 사용한다는 정도 -->
+        <table border="1" style="text-align: center;"> 
+            <tr>
+                <td>table</td>
+            </tr>
+
+            <script>
+                for(var i=0; i<10; i++){
+                    document.write('<tr><td>'+ i +'</td></tr>')
+                }
+            </script>
+        </table>
+
+        <hr>
+
+        <!-- 자바의 for each문과 비슷 -->
+        <!-- 코틀린의 in과 같음 -->
+        <button onclick="display()">객체의 멤버값 출력</button>
+        <script>
+            function display(){
+                // JS에서의 객체생성{} : 멤버변수가 3개인 객체
+                var student= {name:"Sam", age:"22", major:"android"};
+
+                // 객체의 멤버 값을 출력할 때
+                var str="";
+                for(var key in student){ // 임시변수 key는 값이 아니라 멤버변수명!
+                    str += student[key]+"\n";
+                }
+                alert(str);
+
+
+                alert( student.name +", "+student.age);
+                // 위나 아래나 같은 값이 출력됨
+                alert( student['name'] +", "+student['age']);
+            }
+        </script>
+
+
+    </body>
+</html>
