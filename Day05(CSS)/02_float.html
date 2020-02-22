@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>float style</title>
+
+        <style>
+            img{float: left;}
+            .p2{clear: both;}
+
+            /* float된 이미지와 요소의 마진을 주고 싶으면 */
+            /* 'float된 이미지에' margin을 적용 */
+            img{ margin: 10px;}
+
+        </style>
+    </head>
+    <body>
+        <img src="./sunshine.jpg" alt="image">
+        <!-- 왼쪽 마진 적용해보기 : 잘 안됨 -->
+        <p style="margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur expedita dignissimos iste quis dolores corporis reprehenderit, eligendi est sequi voluptas! Omnis quia est iusto iste? Quos labore beatae rem repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum corporis est vel quod distinctio magni repellendus, vero perferendis. Sit tempora omnis libero, unde explicabo molestias quaerat. Nemo, recusandae cumque!</p>
+
+        <!-- float에 의해 요소가 아래에 깔리는 것을 확인해보기 -->
+        <p style="background-color: beige; border: 2px solid palevioletred;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis debitis tenetur. Recusandae, atque. Inventore odio maiores cupiditate autem voluptas, quaerat temporibus modi consectetur hic sapiente magnam corrupti, repellendus eveniet.</p>
+
+
+        <p class="p2">여기는 위 이미지와 상관없는 새로운 블럭입니다.</p>
+
+    </body>
+</html>
