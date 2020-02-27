@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>container</title>
+
+    <!-- 부트스트랩 라이브러리 추가 : CDN [w3cschool.com] -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+    <!-- 요소들의 배치에 대한 연습 -->
+    <!-- block 요소를 사용할 때 -->
+    <!-- 기본적으로 부트스트랩을 적용하면 요소의 기본 padding과 margin에 영향을 줌 (화면 끝에 딱 붙어서 나옴) -->
+
+    <h2 style="background-color: bisque;">this is a heading element</h2>
+    <p style="background-color: palevioletred;">this is a pragraph element</p>
+
+    <!-- 가로가 너무 길면 예쁘지 않으니깐 일반적으로 가로사이즈를 980px로 지정 -->
+    <div style="width: 980px;">
+        <h2 style="background-color: bisque;">this is a heading element</h2>
+        <p style="background-color: palevioletred;">this is a pragraph element</p>
+    </div>
+
+    <!-- 가로사이즈를 940px(좌우여백 고려) & 가운데정렬 -->
+    <div class="container">
+        <h2 style="background-color: bisque;">this is a heading element</h2>
+        <p style="background-color: palevioletred;">this is a pragraph element</p>
+    </div>
+
+    <div class="container">
+        <!-- 한 줄로 배치시키기 -->
+        <div class="row">
+            <h2>Hello</h2>
+            <p>Nice to meet you</p>
+
+            <!-- 인라인요소: 원래 인라인요소는 사이즈 조절이 안됨. 그러나 class="row"안에 위치하면
+            inline-block이 되어 사이즈 조절이 가능 -->
+            <!-- row를 사용하면 container의 padding 좌우가 없어짐 -->
+            <button>aa</button>
+            <a href="#" style="width: 200px; background-color: lightskyblue;">google</a>
+        </div>
+
+        <!-- row 안에 요소들을 균등분할 -->
+        <!-- row 안에 칸의 개수를 12개로 계산하여 사이즈 지정가능 -->
+        <div class="row mt-5">
+            <div class="col-md-2" style="background-color: limegreen;">left</div>
+            <div class="col-md-7" style="background-color:gold;">center</div class="col-md-4">
+            <div class="col-md-3" style="background-color: tomato;">right</div class="col-md-4">
+        </div>
+        <!-- md, sm은 요소의 크기를 말하는 것이 아니라 반응형의 기준사이즈를 의미함 -->
+        <div class="row mt-5">
+            <div class="col-sm-2" style="background-color: limegreen;">left</div>
+            <div class="col-sm-7" style="background-color:gold;">center</div class="col-md-4">
+            <div class="col-sm-3" style="background-color: tomato;">right</div class="col-md-4">
+
+        </div>
+    </div>
+
+    <!-- container는 최대 940px 이상 커지지 않음 -->
+    <!-- 한계를 주지 않되 좌우여백은 주고 싶다면? -->
+    <div class="container-fluid">
+        <h2 style="background-color: bisque;">this is a heading element</h2>
+        <p style="background-color: palevioletred;">this is a pragraph element</p>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HeungMin</td>
+                <td>Son</td>
+                <td>sonny7@coys.com</td>
+            </tr>
+            <tr>
+                <td>Dele</td>
+                <td>Ali</td>
+                <td>dele@coys.com</td>
+            </tr>
+            <tr>
+                <td>Lucas</td>
+                <td>Moura</td>
+                <td>lucasM@coys.com</td>
+            </tr>
+        </tbody>
+
+    </table>
+    
+</body>
+</html>
