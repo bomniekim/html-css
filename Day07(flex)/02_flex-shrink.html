@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>flex-shrink</title>
+
+        <style>
+            .container{display: flex;}
+            .container>div{
+                background: skyblue;
+                width: 100px; margin: 10px;
+                text-align: center; line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>1</div>
+            <div style="flex-shrink: 0;">2</div>
+            <div>3</div>
+            <div>4</div>
+            <div style="flex-shrink: 2;">5</div> 
+            <!-- 다른 요소가 1 줄어들 때 나는 2만큼 줄어듦 -->
+            <div style="flex-shrink: 1;">6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            
+        </div>
+    </body>
+</html>
