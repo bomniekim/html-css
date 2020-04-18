@@ -34,7 +34,7 @@
         document.write('<br>');
         
         var e;
-        document.write(e); // 화면에 undefined 출력돔
+        document.write(e); // 화면에 undefined 출력됨
         document.write('<br>');
         document.write('<hr>');
         
@@ -44,6 +44,9 @@
         document.write( typeof(c) +"<br>" ); 
         document.write( typeof(d) +"<br>" ); 
         document.write( typeof(e) +"<br>" );
+
+        document.write(toString.call(e) +"<br>" ); // 이렇게도 자료형 확인 가능
+        
         
         // 아래의 값은 당연히 string
         var f="1";
@@ -82,15 +85,15 @@
         
         // 문자열은 참조형(객체)이 맞음
         var s="Hello";
-        document.write( s.length); // 자동으로 멤버를 가지고 있음
+        document.write( s.length); // 5, 자동으로 멤버를 가지고 있음
         document.write('<br>');
         
         // 자바와 비슷하게 문자열의 기능 메소드들이 존재함
-        document.write(s.charAt(1));
+        document.write(s.charAt(1)); // e
         document.write('<br>');
         
         // 한글자만 변경 가능
-        document.write(s.replace('l','i'));
+        document.write(s.replace('l','i')); // heilo
         document.write('<br>');
         
         document.write(s.toUpperCase());
