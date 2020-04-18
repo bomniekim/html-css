@@ -44,6 +44,8 @@
         document.write('<br>');
         
         // 그래서 자바스크립트에는 자료형까지 함께 비교하는 연산자를 제공함
+        // == 보다는 ===를 쓰자!
+        // strict equal operator
         document.write(c===d); // false
         document.write('<br>');
         document.write(c===e); // true (정수와 실수는 같은 자료형)
@@ -80,18 +82,18 @@
         
         // 수치형과 문자형의 변환
         var h=1;
-        document.write(typeof(h));
+        document.write(typeof(h)); // number
         document.write('<br>');
         
         // number to string
         // h= String(h);
         h = h+""; // 숫자 + 문자 = 문자!
-        document.write(typeof(h));
+        document.write(typeof(h)); // String
         document.write('<br>');
         
         // string to integer
         h= parseInt("4");
-        document.write(typeof(h));
+        document.write(typeof(h)); // number
         document.write('<br>');
         
         // string to float
@@ -118,7 +120,6 @@
         var age = prompt('input your age', 'input the number'); // 안내메세지, hint
         document.write(age+3); // 44 입력시 443 출력: age가 string이라서 산술연산이 아닌 결합
         document.write('<br>');
-        
         age= parseInt(age);
         document.write(age+3); // 44 입력시 47 출력
         document.write('<br>');
