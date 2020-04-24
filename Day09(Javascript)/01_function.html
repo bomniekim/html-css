@@ -20,7 +20,8 @@
 
         function bb(){
             document.write('bb<br>')
-        } // 같은 스크립트 안에서는 순서 상관이 없지만
+        }
+        // 같은 스크립트 안에서는 순서 상관이 없지만
         // 다른 스크립트에서는 순서를 맞추어야 함
 
         cc(); // 아래 스크립트에 선언된 함수 호출은 불가능
@@ -129,6 +130,8 @@
         // 지역변수에 대한 범위가 다른 언어와 다름
         // JS에서의 지역변수는 변수가 선언된 {}(블럭) 단위가 아니라 [함수 단위]
 
+        // ※ 자바스크립트에서 지역변수 var는 !함수!에서만 유효 ※
+
         for(var i=0; i<5; i++){
             document.write(i+", "); // 0, 1, 2, 3, 4,
         }
@@ -206,7 +209,9 @@
 
     </script>
 
-    <!-- arguments 배열 (거의 사용되지 않음): 파라미터를 몇 개를 전달받을 지 모르는 경우-->
+    <!-- arguments 배열 (거의 사용되지 않음): 사용자로부터 인자를 몇 개를 전달받을 지 모르는 경우-->
+    <!-- 실제로는 배열이 아니라 arguments 객체의 인스턴스임 -->
+    <!-- cf. 인스턴스란 메모리에 정의된 객체가 실제로 할당된 실체를 말함 -->
     <script>
         document.write('<hr>');
         document.write('<h4>arguments 배열객체</h4>');
@@ -226,6 +231,28 @@
         add(10);
         add(10, 20);
 
+
+        function zero(){
+    console.log(
+        'zero.length', zero.length,
+        'arguments', arguments.length
+    );
+}
+function one(arg1){
+    console.log(
+        'one.length', one.length,
+        'arguments', arguments.length
+    );
+}
+function two(arg1, arg2){
+    console.log(
+        'two.length', two.length,
+        'arguments', arguments.length
+    );
+}
+zero(); // zero.length 0 arguments 0 
+one('val1', 'val2');  // one.length 1 arguments 2 
+two('val1');  // two.length 2 arguments 1
     </script>
 
     <!-- 클로저(Closure) : 독립적인 (자유) 변수를 가리키는 함수 -->
