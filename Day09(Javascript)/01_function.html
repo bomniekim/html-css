@@ -232,27 +232,33 @@
         add(10, 20);
 
 
+        // 생활코딩 보충
         function zero(){
-    console.log(
-        'zero.length', zero.length,
-        'arguments', arguments.length
-    );
-}
-function one(arg1){
-    console.log(
-        'one.length', one.length,
-        'arguments', arguments.length
-    );
-}
-function two(arg1, arg2){
-    console.log(
-        'two.length', two.length,
-        'arguments', arguments.length
-    );
-}
-zero(); // zero.length 0 arguments 0 
-one('val1', 'val2');  // one.length 1 arguments 2 
-two('val1');  // two.length 2 arguments 1
+            console.log(
+                'zero.length', zero.length, // 함수가 몇 개의 파라미터를 정의하고 있는가
+                'arguments', arguments.length // 함수가 몇 개의 인자를 받았는가 (둘은 서로 다름)
+            );
+        }
+
+        function one(arg1){
+            console.log(
+                'one.length', one.length,
+                'arguments', arguments.length
+            );
+        }
+
+        function two(arg1, arg2){
+            console.log(
+                'two.length', two.length,
+                'arguments', arguments.length
+            );
+        }
+
+        zero(); // zero.length 0, arguments 0 
+        one('val1', 'val2');  // one.length 1,  arguments 2 
+        two('val1');  // two.length 2,  arguments 1
+
+
     </script>
 
     <!-- 클로저(Closure) : 독립적인 (자유) 변수를 가리키는 함수 -->
