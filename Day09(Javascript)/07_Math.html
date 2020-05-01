@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+
+    <script>
+        // 4. Math
+
+        var n=3.23;
+        document.write( Math.floor(n) +"<br>"); //소수점 없애기: 내림
+        document.write( Math.round(n) +"<br>"); //소수점 없애기: 반올림
+        document.write( Math.ceil(n) +"<br>");  //소수점 없애기: 올림
+
+        // Random
+        var r= Math.random(); // 0.0~1.0
+        document.write( r+"<br>");
+
+        // 0~9 사이를 얻고 싶다면
+        var r=Math.floor(Math.random()*10); //0~9
+        document.write( r+"<br>");
+
+        var r=Math.floor(Math.random()*15); // 0~14
+        document.write( r+"<br>");
+
+        var r=Math.floor(Math.random()*10)+5; // 5~15
+        document.write( r+"<br>");
+        
+        // 소수점 버리는 또 다른 방법
+        var r=(Math.random()*10).toFixed(); // 주의: 리턴타입이 string! -> 쓰지말자!
+        document.write( r+"<br>");
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
