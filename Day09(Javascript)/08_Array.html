@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+
+    <script>
+        // 5. Array
+
+        var arr= new Array(10, 20, 30);
+        document.write(arr+"<br>");
+        document.write(arr.toString()+"<br>");
+
+        // 배열의 주요 메소드
+        // 1) 배열 붙이기
+        var arr1= [3,4,5];
+        var arr2= arr.concat(arr1); // arr의 값은 바뀌지 않음
+        document.write(arr+"<br>");
+        document.write(arr1+"<br>"); 
+        document.write(arr2+"<br>");
+
+        // 2) indexOf
+        document.write(arr.indexOf()+"<br>"); // 못 찾으면 -1
+        document.write(arr.indexOf(30)+"<br>");
+        // 만약 같은 값이 있다면 더 앞에 있는 index가 도출됨
+        document.write(arr.indexOf(10, 1)+"<br>"); // 2번째 파라미터: 그 index 이후부터 검색
+
+        // 3) push pop (stack구조) : 배열요소 개수가 변경됨
+        var stack =[1,2,3,4,5,6];
+        document.write(stack+"<br>");
+
+        stack.push(10); // 마지막 위치에 새로운 값을 삽입 : 마지막 index가 몇 번인지 몰라도 가능
+        document.write(stack+"<br>");
+
+        var a= stack[5];
+        document.write(a+"<br>");
+        document.write(stack+"<br>"); // 1,2,3,4,5,6,10
+
+        var a= stack.pop(); // 배열에서 가장 마지막 index의 값이 빠져나옴 (stack은 FILO)
+        document.write(a+"<br>");
+        document.write(stack+"<br>"); // 1,2,3,4,5,6 (실제로 10이 빠져나감)
+
+
+        // 4) push, shift (Queue구조)
+        var queue= [1,2,3,4,5,6];
+        queue.push(10);
+        document.write(queue+"<br>"); // 1,2,3,4,5,6,10
+
+        var a= queue.shift(); // 배열의 가장 처음 index의 값이 빠져나옴 (Queue는 FIFO)
+        document.write(a+"<br>");
+        document.write(queue+"<br>"); // 2,3,4,5,6,10
+
+        // 5) sort
+        var arr=[1,9,2,7,4,3];
+        arr.sort();
+        document.write(arr+"<br>"); // 1,2,3,4,7,9
+
+        // 두자리 수 일때 문제 발생
+        // why? 알파벳 순으로 인식
+        var arr=[1,126,9,2,7,439,4,3,22,17];
+        arr.sort();
+        document.write(arr+"<br>"); // 1,126,17,2,22,3,4,439,7,9
+        
+        // 해결하기 위해 sort()의 파라미터에 '정렬기준 함수'를 넣어줌
+        arr.sort( function(a,b){return a-b} ); // 오름차순: 1,2,3,4,7,9,17,22,126,439
+        document.write(arr+"<br>"); 
+
+        arr.sort( function(a,b){return b-a} ); // 내림차순: 439,126,22,17,9,7,4,3,2,1
+        document.write(arr+"<br>"); 
+        
+
+        // 알파벳은 기본적으로 오름차순
+        var arr=['abc','bhc','das','rod','hop'];
+        arr.sort();
+        document.write(arr+"<br>");
+
+        // 내림차순 지정함수 
+        var desc= function(a,b){
+            if(a>b) return -1;
+            if(a<b) return 1;
+            return 0;
+
+        }
+        arr.sort( desc ); // 위에서 만든 정렬지정함수를 전달
+        document.write(arr+"<br>"); // rod,hop,das,bhc,abc
+
+        // 한글도 정렬가능
+        var arr=["박재범","구창모","김기민","최유진","이동현"];
+        arr.sort();
+        document.write(arr+"<br>");
+
+        // 6) slice: 배열의 일부분을 잘라 새로운 배열로 리턴
+        var arr=[10,20,30,40,50,60,70,80,90];
+        var arr2=arr.slice(3); // 3번부터 잘라서 새로운 배열로 리턴: 40,50,60,70,80,90
+        document.write(arr2+"<br>"); 
+
+        var arr2=arr.slice(3, 6); // 3부터 6 전까지 (3~5) 잘라서 리턴: 40,50,60
+        document.write(arr2+"<br>"); 
+
+
+        // 7) join: 특정문자를 구분자로 하여 하나의 문자열로 리턴
+        // 배열의 요소를 결합시킬 때 사용 (string의 split의 정반대)
+        var arr=["aa","bb","cc"];
+        var str=arr.join('-');
+        document.write(str+"<br>"); // aa-bb-cc
+
+
+        // 8) filter: 지정함수 이용 (sort와 같은 방법으로 사용)
+        var arr=[1,2,8,4,5,2,7,43,2.21,-6];
+        var arr1=arr.filter( function(e){return e>3;} ); // 배열 요소 중에 3보다 큰 것만
+        // 리턴값이 true인 e의 값만 출력되게 하는 function
+        document.write(arr1+"<br>"); 
+
+        // 복잡한 지정함수
+        var filter= function(e, index, array){
+            // 파라미터 설명: 요소, 인덱스번호, 배열객체
+            // 요소값이 3보다 크고 index가 5보다 큰 요소 출력
+            // return (e>3 && index>5);
+
+            // 더 복잡
+            // 요소값이 3보다 크고 index가 5보다 크며 배열길이가 7보다 클 때
+            return (e>3 && index>5 && array.length>7);
+
+        }
+
+        var arr2= arr.filter(filter);
+        document.write(arr2+"<br>"); 
+
+        // 2차원 배열
+        var arr=[
+            [10,20,30],
+            ["aa","bb","cc"],
+            [new Date(), new Number(), true]
+        ];
+
+        document.write(arr+"<br>"); 
+
+        document.write('<hr>');
+
+        // 추가된 기능들///////////////////////////
+        // ECMAscript5에서 새로 추가된 기능들 ///////
+        var aa= [10,20,30,40,50];
+
+        // 각각의 배열요소에 접근할 때 마다 파라미터인 콜백함수가 실행됨
+        // 배열의 길이만큼 콜백함수가 실행됨!!!!
+        aa.forEach( function(value, index, array){ 
+            document.write(value+", "+index+", "+array.length+"<br>");
+            });
+
+
+        // forEach()와 매우 비슷한 map()메소드
+        // 각각의 배열요소에 접근할때 마다 콜백함수가 실행되고!! forEach와 다르게 함수에 return이 존재함!!- 이 return된 값들이 다시 새로운 배열을 만들어냄!!
+        var bb= aa.map( function(value, index, array){
+            return value + index;
+        });
+        document.write(bb +"<br>");
+
+
+        //()메소드는 예를 들어 요소의 값을 모두 1씩 증가시켜!! 등의 작업에 사용가능함
+        var cc=aa.map( function(value){ return "<h2>"+(value+1)+"</h2>";}  );
+        document.write(cc +"<br>");
+
+        
+        document.write("<hr>");
+
+        // JS객체 to json 문자열 변환
+        var person={
+            name: "Son",
+            age: 28,
+            male: true,
+            test:{ major:"soccer", specialty:"sprint"},
+
+            //메소드가 있다면? json문자열로 변환되지 않고 무시됨
+            show:function(){
+                document.write(this.name);
+            }
+        };
+
+        var json= JSON.stringify(person);
+        document.write( json+"<br>");
+
+        // json to JS객체
+        var car= JSON.parse('{"name":"Ferrari","model":520,"color":"black"}');
+        document.write( car.name+", "+car.model+", "+car.color+"<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
