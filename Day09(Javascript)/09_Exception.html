@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exception</title>
+
+    <script>
+        // 예외처리
+        // alet('hi'); //error // 여기서 에러가 나면 다음 줄이 진행되지 않음
+
+        try{
+            alet('hi'); // 에러가 나면 catch문으로 이동되고 프로그램은 계속 진행
+        }catch(e){
+            document.write(e+"<br>");
+        }
+
+        document.write('예외처리! <br>');
+
+        // finally
+        try{
+            aaa();
+        }catch(e){
+            document.write(e+"<br>");
+        }finally{
+            // 에러의 존재에 상관없이 무조건 실행되는 영역
+            document.write("여기는 무조건 실행<br>");
+        }
+        
+        function aaa(){
+
+        }
+
+        document.write("<hr>");
+        
+        // throw: 일부러 예외를 발생시켜 예외 처리하는 기법
+        try{
+            var a=10;
+            var b=15;
+
+            var c=a-b;
+            // 원래 에러는 아니지만 결과가 음수이면 에러인 것으로 인지하도록
+            // 결과가 양수만 나오도록 
+            if(c<0) throw "음수는 시로시로"; // throw가 catch의 파라미터 e로 전달됨
+            
+            document.write("result: "+c+"<br>");
+
+        }catch(e){
+            document.write("error: "+e+"<br>");
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
