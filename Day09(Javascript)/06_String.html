@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stirng</title>
+
+    <script>
+        // 3. String (string의 Wrapper)
+            //문자형과 String은 다른것임
+            var a="hello";
+            var b= new String("hello");
+
+            document.write( typeof(a)+'<br>' ); // string
+            document.write( typeof(b)+'<br>' ); // object
+            document.write( (a===b)+'<br>' );//자료형이 다르므로 false
+
+            //String의 메소드
+            var s="Hello world"; //자동 wrapping
+            document.write( s.length +"<br>"); //length는 변수(property)
+            // 11 (띄어쓰기 포함)
+            document.write( s.toUpperCase() +"<br>");
+            document.write( s.toLowerCase() +"<br>");
+
+            document.write( s.concat(' Nice') +"<br>"); //글씨 덧붙이기
+            document.write( s.indexOf("wor") +"<br>");
+            document.write( s.indexOf("word") +"<br>");//못 찾으면 -1
+
+            //문자열 중에서 원하는 문자 탐색하기 [match]
+            var str="Hello world! Nice to meet you. 안녕하세요. 반갑습니다. Nice work! nice guys."
+
+            //  /word/ : 정규표현식 표기법
+            var search= str.match(/Hello/);// 찾은 문자열을 리턴시킴
+            document.write("탐색결과 : "+  search+"<br>");
+
+            // 대소문자 구별함 - 못찾으면 null
+            var search= str.match(/hello/);
+            document.write("탐색결과 : "+  search+"<br>");
+
+            // 대소문자 구별없이 하고 싶다면 옵션추가 [i:ignore]
+            var search= str.match(/hello/i);
+            document.write("탐색결과 : "+  search+"<br>");
+
+            // 여러 글자일 때
+            var search= str.match(/Nice/);
+            document.write("탐색결과 : "+  search+"<br>");
+            // 만약 여러 개를 리턴받고 싶다면 옵션추가 [g:global]
+            var search= str.match(/Nice/g);
+            document.write("탐색결과 : "+  search+"<br>");
+
+            // 리턴결과는 [배열]임!
+            document.write("탐색결과의 개수: "+ search.length+"<br>"); // 2
+            document.write("탐색결과[0]: "+ search[0]+"<br>"); 
+            document.write("탐색결과[1]: "+ search[1]+"<br>"); 
+
+            // 여러 개를 리턴받으면서 대소문자도 구분하고 싶지 않다면
+            var search= str.match(/Nice/gi); //==(/Nice/ig)
+            document.write("탐색결과 : "+ search+"<br>");
+            document.write("탐색결과의 개수: "+ search.length+"<br>"); // 3
+
+            // 한글도 가능
+            var search= str.match(/안녕/); 
+            document.write("탐색결과 : "+ search+"<br>");
+
+            document.write("<hr>");
+
+            // 문자 대체하기 [replace]
+            var s="Hello world";
+            document.write(s.replace("world", "Android")+"<br>"); // Hello Android
+            document.write(s.replace("World", "Android")+"<br>"); // 대문자로 인해 replace 안됨 : Hello world
+
+            // 대소문자 구별없이 대체하고 싶다면? 옵션사용 [정규표현식을 사용해야 함]
+            document.write(s.replace(/WorLd/i, "Android")+"<br>"); // Hello Android
+
+            // 문자열 주엥서 특정단어들 모두 변경하기
+            var str="hello world, nice world, good World, bad World";
+            var result= str.replace("world", "android"); // hello world만 바뀜
+            document.write( result +"<br>");
+            // replace는 기본적으로 한 번만 바뀜 -> 여러 번 바꾸고 싶다면 정규표현식 + 옵션추가
+
+            var result= str.replace(/world/ig, "android");
+            document.write( result +"<br>");
+
+            // 이 기능을 이용해서 특정문자열 중 비속어들을 xx처리하는 데 사용됨
+
+            // 문자열을 특정문자 기준으로 잘라서 배열로 리턴해주는 기능
+            var s="one,two,three,four,five";
+            var arr=s.split(','); // , 기준으로 자르기
+            
+            document.write(arr.length+"<br>");
+            document.write(arr[0]+"<br>");
+            document.write(arr[1]+"<br>");
+            document.write(arr[2]+"<br>");
+            document.write(arr[3]+"<br>");
+            document.write(arr[4]+"<br>");
+            document.write(arr+"<br>"); // 자동으로 toString()으로 출력해줌
+
+
+            // 문자열을 html요소로 자동으로 감싸주기 (권장하지는 않음)
+            var s="This is test";
+            document.write(s.bold()+"<br>") ;
+            document.write(s.italics()+"<br>") ;
+            document.write(s.fontcolor('green')+"<br>") ;
+            document.write(s.link('http://www.naver.com')+"<br>") ;
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
