@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+
+</head>
+<body>
+    <!-- DOM(Documnet Object Model), BOM(Browser Object Model)-->
+    <!-- DOM 트리의 가지에 있는 요소 하나하나를 node라고 함 -->
+    <!-- node의 종류: element node, attribute node, text node -->
+    <!-- 노드간의 관계 : parent node, child node, sibling node 이 관계를 이용해서 요소 제어 가능 -->
+    
+    <!-- node의 타입(종류) 확인 -->
+    <!-- 1) 요소 (element)-->
+    <!-- 2) 속성 (attribute)-->
+    <!-- 3) 텍스트 -->
+
+    <p id="p1"></p><a href="" target="">apple</a></p>
+
+    <script>
+        // id=p1인 요소
+        var e=document.getElementById('p1');
+    //  alert(e.nodeType+", "+e.nodeName); // nodeType 1: element node //1, P
+
+        // p요소의 속성
+        var attrs= e.attributes;
+    //    alert (attrs[0].nodeType+", "+attrs[0].nodeName); //2, id
+    //    alert ('속성값: '+ attrs[0].value); // 속성값: p1
+
+        // p요소의 첫번째 자식 노드: a요소
+        var e=e.firstChild;
+        alert(e.nodeType+", "+e.nodeName); //1, A
+
+        // 요소의 속성
+        var attrs= e.attributes;
+        alert(attrs[0].nodeType+", "+attrs[0].nodeName); // 2, href
+        alert(attrs[1].nodeType+", "+attrs[1].nodeName);  // 2, target
+
+        // a요소의 첫번째 자식 노드: 텍스트 노드
+        var t=e.firstChild;
+        alert(t.nodeType+", "+t.nodyName);
+        alert('텍스트 값: '+t.data); // 텍스트 노드의 값
+
+    </script>
+
+    <hr>
+
+    <!-- 자식노드 제어하기 -->
+
+    <ul>
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+        <li>dd</li>
+    </ul>
+
+    <ul>
+        <li>가</li>
+        <li>나</li>
+    </ul>
+    
+    <script>
+        // 이 문서 전체의 li 요소 개수 알아보기
+        var items=document.getElementsByTagName('li');
+    //    alert(items.length);
+
+        // 첫번째 ul 요소의 자식들 중에서 li 요소 개수
+        var uls=document.getElementsByTagName('ul');
+        var items=uls[0].getElementsByTagName('li');
+    //    alert(items.length);
+
+        // 3번째 li의 텍스트 노드 값
+    //    alert(items[2].firstChild.data);
+
+        // ul요소의 자식 중 첫번째 요소의 텍스트 노드 값과 마지막 자식의 텍스트노드 값 얻어오기
+
+    //    alert(uls[0].firstChild.nodeName); // 텍스트 노드
+        // li 요소가 아님! 왜? *** 줄바꿈도 텍스트 노드 ***
+        // 그래서 위의 p요소에서 줄바꿈을 하고 alert 창을 띄우면 값이 달라지는 것이었따..
+
+        //<ul>의 첫번째 자식 요소를 찾고싶다면?
+    //    alert (uls[0].firstElementChild.nodeName); // li 
+    //    alert('첫번째 li의 텍스트 값: '+uls[0].firstElementChild.firstChild.data); // aa
+
+        // 마지막 자식 요소
+    //    alert (uls[0].lastElementChild.nodeName); // li 
+    //    alert('마지막 li의 텍스트 값: '+uls[0].lastElementChild.firstChild.data); // dd
+    </script>
+
+    <hr>
+    <!-- 형제 요소 찾아 제어하기 -->
+    <div>
+        <p>Fruits List</p>
+        <ul>
+            <li>apple</li>
+            <li>orange</li>
+            <li>grape</li>
+        </ul>
+    </div>
+
+    <hr>
+    <button onclick="clickBtn(this)">버튼</button>
+    <!-- clickBtn()을 호출하면서 'this'를 전달함으로써 button요소를 전달 -->
+    <p></p>
+
+    <script>
+        function clickBtn(e){ // 파라미터 e: button요소 (this 키워드로 전달된)
+            var div= document.getElementsByTagName('div');
+
+            //div의 첫번째 자식요소인 p요소
+            var p=div[0].firstElementChild;
+
+            //p요소 다음에 있는 ul요소 찾기 (형제요소)
+            // var ul=p.nextSibling; // 이렇게 하면 줄바꿈인 텍스트 노드가 찾아짐
+            var ul=p.nextElementSibling;
+    //        alert(ul.nodeName); // ul
+
+            // ul의 자식들
+    //        alert(ul.childNodes.length); // 줄바꿈 포함 7
+
+            var str="";
+            for(var i=0; i<ul.childNodes.length; i++){
+                str+= ul.childNodes[i].nodeName+"\n";
+            }
+    //        alert(str); // li사이의 줄바꿈 텍스트까지 포함
+
+            //그러므로 자식요소의 개수를 알고싶다면?
+    //        alert('자식요소의 개수: '+ ul.childElementCount); // 3
+
+            //자식 li의 텍스트만 보고싶다면?
+            var str="";
+            var li= ul.firstElementChild;
+            str += li.firstChild.data+"\n";
+            for(var i=1; i<ul.childElementCount; i++){
+                li = li.nextElementSibling;
+                str +=li.textContent +"\n"; // == firstChild.data
+            }
+    //        alert(str);
+
+            //alert으로 결과를 보기 불편하니 버튼 다음에 p요소를 하나 놓고 그 요소에 출력해보기
+            //id도 없는 p요소를 어떻게 찾을 수 있을까?
+            // (1) p요소의 태그이름으로 찾기 (그러나 전체 문서의 p요소가 많고 위치가 불명확)
+
+            // (2) clickBtn()을 실행시킨 button요소를 찾아온 후 그 다음 요소인 p 찾기
+    //        alert(e.nodeName);
+
+            //버튼 e의 다음 형제요소
+            e.nextElementSibling.innerHTML= str;
+            e.nextElementSibling.innerHTML+= str;
+
+            e.nextElementSibling.textContent+= str;
+
+
+
+
+        }
+        
+    </script>
+</body>
+</html>
