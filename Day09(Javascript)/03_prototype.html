@@ -24,6 +24,9 @@
         p1.show();
         p2.show();
 
+        // prototype이라는 빈 object가 어딘가 존재하고 Person 함수로부터 생성된 객체들은 어딘가에 존재하는
+        // 이 object에 들어있는 값을 모두 가져다 쓸 수 있음
+
         // 프로토타입 메소드를 여러 개 만들 수 있음
         Person.prototype.getName=function(){
             return this.name;
@@ -86,7 +89,12 @@
         var c= new Car("rarri", 30);
         document.write(c.model+", "+c.color);
 
+        // 자바스크립트 프로토타입 참조자료
+        // https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67
+        
     </script>
     
 </body>
 </html>
+
+
