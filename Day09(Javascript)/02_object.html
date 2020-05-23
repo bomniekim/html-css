@@ -24,6 +24,7 @@
                 // document.write("show: "+name+", "+age+"<br>"); -> name, age를 알아듣지 못함: error
                 // JS에서는 속성을 사용할 때 반드시 [this 키워드]를 "명시적"으로 사용해야 함
                 document.write("show: "+this.name+", "+this.age+"<br>");
+                // this: 메소드가 속해있는 객체를 가리킴
                 
             }
             
@@ -38,6 +39,7 @@
         
         // 객체의 메소드 호출
         person.show();
+        person['show'](); // 이렇게도 가능
         
         // 새로운 person 객체를 또 만들고 싶다면
         // 또다시 리터럴 객체를 다 만들어야 함
