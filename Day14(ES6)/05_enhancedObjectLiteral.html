@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Object Literal</title>
+</head>
+
+<body>
+    <script>
+        // https://joshua1988.github.io/es6-online-book/enhanced-object-literals.html
+
+        // 1. 속성에 함수를 정의할 때 function 예약어 생략 가능
+        var dic = {
+            words: 100,
+            // ES5
+            lookup: function () {
+                console.log("es5 words");
+            },
+            // ES6 : 객체의 속성으로써 메소드로 사용할 때 'function' 생략 가능
+            // * () == : function *
+            look_up() {
+                console.log("es6 words");
+            }
+        }
+
+        // 2. 속성과 값이 같으면 1개만 기입함으로써 축약 가능
+        var figures = 10;
+        var dic = {
+            // figures: figures,
+            figures
+        };
+    </script>
+
+</body>
+
+</html>
