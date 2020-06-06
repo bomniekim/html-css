@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Module</title>
 
-        <!-- 다른 문서의 클래스나 변수를 가져와서 사용하는 기법: module -->
-        <!-- 현업에서는 이런 모듈들을 만들어 놓고 프로젝트마다 필요한 모듈을 재사용하며 코딩 -->
+<head>
+    <meta charset="UTF-8">
+    <title>Module</title>
 
-        <script type="module">
-            import show from './module_aa.js';
-            // default가 없는 export를 import할 때는 구조 분해 할당으로만 가능
-            import {show2, num} from './module_aa.js';
-            
-            import {age as a} from './module_aa.js';
-            // age를 a로 변경
-            // 다른 문서에 있는 값이 내 문서의 값과 겹치는 경우 방지
-            
-            // 한꺼번에 전부 import 가능
-            // import show, {show2, num, age as a} from './module_aa.js';
+    <!-- 다른 문서의 클래스나 변수를 가져와서 사용하는 기법: module -->
+    <!-- 현업에서는 이런 모듈들을 만들어 놓고 프로젝트마다 필요한 모듈을 '재사용'하며 코딩 -->
 
-            show();
-            show2();
-            document.write(num+", "+a);
-        
-        </script>
+    <script type="module">
+        import show from './module_aa.js';
+        // default가 없는 export를 import할 때는 구조 분해 할당으로만 가능
+        import { show2, num } from './module_aa.js';
 
-        <!-- 별도의 외부 문서로 작성해서 아래처럼 가져와도 됨 -->
-        <!-- <script src="./module_bb.js" type="module"></script> -->
+        import { age as a } from './module_aa.js';
+        // age를 a로 변경
+        // 다른 문서에 있는 값이 내 문서의 값과 겹치는 경우 방지
 
-    </head>
-    <body></body>
+        // 한꺼번에 전부 import 가능
+        // import show, {show2, num, age as a} from './module_aa.js';
+
+        show();
+        show2();
+        document.write(num + ", " + a);
+
+    </script>
+
+    <!-- 별도의 외부 문서로 작성해서 아래처럼 가져와도 됨 -->
+    <!-- <script src="./module_bb.js" type="module"></script> -->
+
+</head>
+
+<body></body>
+
 </html>
