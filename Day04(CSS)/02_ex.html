@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ex</title>
+
+        <style>
+            /* anchor 스타일 */
+            a#anchor:link{color:magenta;}
+            a#anchor:visited{color:mediumblue;}
+            a#anchor:hover{color:mediumspringgreen;}
+            a#anchor:active{color:olive;}
+
+            /* 문서에 마우스를 올렸을 때 배경 전체 변경 */
+            /* :hover{background-color: plum;} */
+
+            /* <a> 요소가 아닌 것에도 적용 가능 */
+            p:hover{background-color: sandybrown;}
+
+            img{background-color: cornsilk; border:2px solid black;}
+            img:hover{background-color: gainsboro; width: 100%;}
+
+            /* 리스트 스타일 */
+            ul.a{list-style-type: circle;}
+            ul.b{list-style-type: disc;}
+
+            ul.c{list-style-type: square; list-style-position: inside;}
+
+            /* 리스트 이미지는 사이즈 조절이 번거로워서 잘 사용하지 않음 */
+            ul.d{list-style-image: url('./border.png');}
+
+        </style>
+
+    </head>
+    <body>
+        <a href="" id="anchor">apple</a>
+
+        <p>Hello</p>
+        <img src="./image.png" alt="image">
+
+        <!-- 리스트 스타일 -->
+        <hr>
+
+        <ul class="a">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul class="b">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul class="c">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul class="d">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+
+
+    </body>
+</html>
