@@ -51,5 +51,5 @@
             #kk ul li:nth-child(2){background-color: cornsilk;}
 
             /* 수식을 이용한 n번째 자식 스타일링 */
-            table tr:nth-child(2n+1){background-color: cornsilk;}
+            table tr:nth-child(2n){background-color: cornsilk;}
 
