@@ -7,7 +7,7 @@
         <style>
             /* display 속성 */
             /* 블럭 요소를 인라인 요소로 변경 [width 조정이 불가능해짐] */
-            #a{display: inline; width: 300px;}
+            /* #a{display: inline; width: 300px;} */
             /* 인라인처럼 옆으로 배치되지만 블럭처럼 너비를 주고 싶다면 */
             #a{display: inline-block; width: 300px;}
 
@@ -53,20 +53,23 @@
         <!-- display:none 연습 -->
         <ul>
             <li>aaa</li>
-            <li id="c">bbb</li>
+            <li id="c">bbb</li> <!-- hidden과 none의 차이! -->
             <li>ccc</li>
         </ul>
 
         <hr>
+        
         <!-- 블럭 요소와 인라인 요소를 함께 사용할 때 고려해야 할 것들 -->
 
         <!-- 블럭 요소 안에 블럭 요소를 넣었을 때 -->
-        <div style="background-color: palegoldenrod; border:solid; padding: 5px;">
-            Happy<p>aaa</p>World
+        <div style="background-color: yellowgreen; border:solid; padding: 5px;">
+            Happy <p>aaa</p>World
         </div>
+        <!-- 블럭처럼 쌓임 -->
 
         <!-- 인라인 요소 안에 블럭 요소를 넣었을 때 (권장하지는 않으나 에러는 아님) -->
-        <span style="background-color:palevioletred; border:solid; padding: 5px;">Happy<p>bbb</p>World</span>
+        <span style="background-color:palevioletred; border:solid; padding: 5px;">
+            Happy<p style="background-color: sandybrown;">bbb</p>World</span>
         <!-- 인라인 요소를 비집고 블럭요소가 들어왔기 때문에 깨짐 -->
 
         <!-- 블럭 요소 안에 블럭 요소를 넣을 때 같은 요소를 넣는 것은 권장하지 않음 -->
