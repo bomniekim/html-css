@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Media Query</title>
+
+        <!-- 반응형 웹을 만들기 위한 기술 : 미디어쿼리 -->
+
+        <!-- 미디어 쿼리를 사용하는 방법은  2가지 -->
+
+        <!-- 방법 1. @media 키워드 사용 -->
+
+        <style>
+            #aa{
+                width: 320px;
+                height: 100px;
+                background-color: dodgerblue;
+            }
+
+            /* 너비가 480px 이상인 경우의 스타일 */
+            @media(min-width: 560px) {
+                #aa{
+                    background-color: gold;
+                    width: 560px;
+                    height: 200px;
+                }
+            }
+        </style>
+
+        <!-- 방법 2. 미디어 속성을 이용 -->
+
+        <link rel="stylesheet" href="./01_media.css" media="(min-width:560px) and (max-width:800px)">
+
+        <!-- media 속성을 내부스타일에 적용하기 -->
+        <style media="(min-width:680px)">
+        #aa{
+            width: 800px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id="aa">
+
+
+        </div>
+    </body>
+</html>
