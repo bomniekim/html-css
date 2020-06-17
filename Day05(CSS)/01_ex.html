@@ -27,9 +27,10 @@
 
             #p2{
                 position: static; /* 원래 놓여질 위치대로 놓기: default */
-                position: relative; /* 원래 놓여질 위치를 기준으로 설정*/
-                position: absolute; /* 문서의 좌상단을 기준으로 설정 */
-                position: fixed; /* 브라우저를 기준으로 설정 : 주로 인터넷 광고..*/
+                position: relative; /* 원래 놓여질 위치(static)를 기준으로 이동 */
+                position: absolute; /* element가 담겨있는 상자(부모 요소라고 볼 수 있음)를 기준 */
+                position: fixed; /* 상자를 브라우저(페이지)를 기준으로 설정 : 주로 인터넷 광고..*/
+                /* position: sticky : 그 자리에 고정 (스크롤링해도 이동하지 않음) */
 
                 /* 요소의 위치지정 속성 (static에서는 적용이 안됨)*/
                 left: 50px;
