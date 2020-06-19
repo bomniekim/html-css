@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            background: beige;
+            height: 100vh; 
+            /* height: 100%; 아이템의 크기에 맞춘 비율 */
+            /* 보이는 view-port의 비율에 맞춤 */
+            display: flex;
+
+            flex-direction: row; /* default */
+            /* flex-direction: column;
+            flex-direction: row-reverse; 
+            flex-direction: column-reverse; */
+
+            flex-wrap: nowrap; /* default */
+            flex-wrap: wrap; /* 아이템이 한 줄에 꽉 차게 되면 자동으로 다음 라인으로 이동 */ 
+            flex-wrap: wrap-reverse; /* 밑에서부터 반대로 wrapping */
+
+            /* flex-direction + flex-wrap */
+            flex-flow: column wrap;
+
+            justify-content: start;
+        }
+
+        .item {
+            width: 70px;
+            height: 70px;
+        }
+
+        .item1 {
+            background: #ef9a9a;
+        }
+        .item2 {
+            background: #f48fb1;
+        }
+        .item3 {
+            background: #ce93d8;
+        }
+        .item4 {
+            background: #b39ddb;
+        }
+        .item5 {
+            background: #90caf9;
+        }
+        .item6 {
+            background: #a5d6a7;
+        }
+        .item7 {
+            background: #e6ee9c;
+        }
+        .item8 {
+            background: #ef9a9a;
+        }
+        .item9 {
+            background: #ef9a9a;
+        }
+        .item10 {
+            background: #ef9a9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+    </div>
+</body>
+</html>
